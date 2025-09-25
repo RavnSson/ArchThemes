@@ -1,0 +1,156 @@
+/**
+ * ROFI Color theme — Ergo Proxy (Beige visible + contrast)
+ * Paleta: celeste frío, gris azulado, beige piel, café terroso, gris oscuro, rojo apagado
+ */
+
+* {
+   /* acentos */
+   maincolor:        #6C8FA3;    /* celeste frío */
+   highlight:        bold #6C8FA3;
+   urgentcolor:      #8A2E32;    /* rojo apagado */
+
+   /* neutrales y fondos */
+   fgwhite:          #E8E8E8;    /* texto claro */
+   blackdarkest:     #1F1F1F;    /* fondo base oscuro */
+   blackwidget:      #BFAE98;    /* beige piel (subido contraste) */
+   blackentry:       #1F1F1F;    /* ítems normales oscuros */
+   blackselect:      #3C4A57;    /* selección gris azulado */
+   darkgray:         #3A3A3A;    /* texto oscuro sobre beige */
+   scrollbarcolor:   #8B6E4E;    /* detalle café terroso */
+
+   font: "DejaVu Sans Mono Regular 14";
+   background-color: @blackdarkest;
+}
+
+window {
+   background-color: @blackdarkest;
+   anchor: north;
+   location: north;
+   y-offset: 20%;
+   border-radius: 15px;
+   border-color: #6C8FA3;
+   border: 1px;
+}
+
+mainbox {
+   background-color: @blackdarkest;
+   spacing: 0px;
+   children: [inputbar, message, listview];
+}
+
+message {
+   padding: 6px 10px;
+   background-color: @blackwidget;
+   text-color: #1F1F1F;    /* contraste fuerte sobre beige */
+}
+
+textbox {
+   text-color: #1F1F1F;
+   background-color: @blackwidget;
+}
+
+listview {
+   fixed-height: false;
+   dynamic: true;
+   scrollbar: true;
+   spacing: 0px;
+   padding: 1px 0px 0px 0px;
+   margin: 0px 0px 1px 0px;
+   background: @blackdarkest;
+}
+
+element { padding: 2px 15px; }
+
+element normal.normal {
+   padding: 0px 15px;
+   background-color: @blackentry;
+   text-color: @fgwhite;
+}
+
+element normal.urgent {
+   background-color: @blackentry;
+   text-color: @urgentcolor;
+}
+
+element normal.active {
+   background-color: @blackentry;
+   text-color: @maincolor;
+}
+
+element selected.normal {
+    background-color: @blackselect;      /* gris azulado */
+    text-color:       #FFFFFF;
+    border:           1px;
+    border-color: @maincolor;
+}
+
+element selected.urgent {
+    background-color: @urgentcolor;
+    text-color:       #F1F1F1;
+}
+
+element selected.active {
+    background-color: @maincolor;        /* celeste */
+    text-color:       #121212;
+}
+
+element alternate.normal {
+   background-color: @blackentry;
+   text-color: @fgwhite;
+}
+
+element alternate.urgent {
+   background-color: @blackentry;
+   text-color: @urgentcolor;
+}
+
+element alternate.active {
+   background-color: @blackentry;
+   text-color: @maincolor;
+}
+
+scrollbar {
+   background-color: @blackentry;
+   handle-color: @scrollbarcolor;        /* café terroso */
+   handle-width: 15px;
+}
+
+mode-switcher {
+   background-color: @blackwidget;
+   text-color: #1F1F1F;    /* texto oscuro */
+}
+
+button {
+   background-color: @blackwidget;
+   text-color: #1F1F1F;
+}
+button selected {
+   text-color: @maincolor;
+}
+
+inputbar {
+   background-color: @blackdarkest;
+   spacing: 0px;
+}
+
+prompt {
+   padding: 6px 9px;
+   background-color: @maincolor;         /* celeste */
+   text-color: #0b0f17;
+   border: 1px;
+   border-color: #3C4A57;
+   border-radius: 8px;
+}
+
+entry {
+   padding: 6px 10px;
+   background-color: @blackwidget;
+   text-color: #1F1F1F;                  /* texto oscuro sobre beige */
+}
+
+case-indicator {
+   padding: 6px 10px;
+   text-color: @maincolor;
+   background-color: @blackwidget;
+   text-color: #1F1F1F;
+}
