@@ -1,0 +1,67 @@
+# Estilo sobrio, sin iconos ruidosos
+add_newline = false
+format = """
+$username$hostname$directory$git_branch$git_status$cmd_duration$time$character"""
+
+# Paleta CodexSyn
+palette = "codexsyn"
+[palettes.codexsyn]
+crt    = "#00FF22"  # Verde fósforo (terminal)
+glitch = "#5E2B97"  # Violeta abismal
+error  = "#D92626"  # Rojo sangreal
+dim    = "#3A3D42"  # Hierro viejo
+text   = "#C5C8C6"  # Ceniza espectral
+bg     = "#0A0B0C"  # Obsidiana
+panel  = "#1C1E22"  # Grafito digital
+cold   = "#5A6A7A"  # Acero glacial
+
+[username]
+show_always = true
+format = "[$user]($style)  "
+style_user = "fg:crt"
+style_root = "bold fg:error"  # root en rojo
+
+[hostname]
+ssh_only = true                 # solo aparece en SSH
+format = "[@$hostname]($style) · "
+style = "fg:glitch"
+
+[directory]
+format = "in [$path]($style) · "
+style = "bold fg:crt"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+format = "[$branch]($style) · "   # sin icono extra
+style = "fg:glitch"
+symbol = ""
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) · "
+style = "fg:glitch"
+conflicted = "!"
+ahead = "↑${count}"
+behind = "↓${count}"
+stashed = "≡"
+modified = "~"
+staged = "+"
+renamed = "»"
+deleted = "×"
+untracked = "?"
+
+[cmd_duration]
+min_time = 700
+format = "[$duration]($style) · "
+style = "fg:dim"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+format = "[$time]($style) "   # sin punto antes del prompt
+style = "fg:dim"
+
+[character]
+success_symbol = "[❯](fg:crt)"
+error_symbol   = "[❯](fg:error)"
+vicmd_symbol   = "[❮](fg:crt)"

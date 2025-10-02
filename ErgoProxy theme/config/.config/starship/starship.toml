@@ -1,0 +1,61 @@
+# Estilo sobrio, sin iconos ruidosos
+add_newline = false
+format = """$username$hostname$directory$git_branch$git_status$cmd_duration$time$character"""
+
+[palettes.codex]
+crt = "green"
+glitch = "magenta"
+dim = "gray"
+
+palette = "codex"
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "fg:crt"
+style_root = "bold fg:glitch"
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style) "
+style = "fg:glitch"
+
+[directory]
+format = "[$path]($style) "
+style = "bold fg:crt"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+format = "[ $branch]($style) "
+style = "fg:glitch"
+symbol = ""  # sin icono extra
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "fg:glitch"
+conflicted = "!"
+ahead = "↑${count}"
+behind = "↓${count}"
+stashed = "≡"
+modified = "~"
+staged = "+"
+renamed = "»"
+deleted = "×"
+untracked = "?"
+
+[cmd_duration]
+min_time = 700
+format = "[⏱ $duration]($style) "
+style = "fg:dim"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+format = "[$time]($style) "
+style = "fg:dim"
+
+[character]
+success_symbol = "[❯](fg:crt)"
+error_symbol = "[❯](fg:glitch)"
+vicmd_symbol = "[❮](fg:crt)"

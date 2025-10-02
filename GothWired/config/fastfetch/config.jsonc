@@ -1,0 +1,83 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  // ---- LOGO (ASCII desde archivo) ----
+  "logo": {
+    "type": "file",
+    "source": "~/.local/share/fastfetch/logos/craimi_white.txt",
+    "padding": { "right": 2 },
+    "color": {
+      "1": "#C5C8C6", // Ceniza espectral (base del ASCII)
+      "2": "#00FF22", // Verde fósforo (detalle/ojos si usas $2)
+      "3": "#D92626", // Rojo sangreal (alerta/acentos si usas $3)
+      "4": "#5E2B97", // Violeta abismal (acento alterno si usas $4)
+      "5": "#5A6A7A"  // Acero glacial (sombras/neutral si usas $5)
+    }
+  },
+
+  // ---- DISPLAY (colores/estilo) ----
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys":  "#5A6A7A", // Acero glacial para las etiquetas
+      "title": "#00FF22"  // Verde fósforo para el título
+    },
+    "key": { "width": 14, "type": "string" },
+    "bar": {
+      "width": 18,
+      "char": { "elapsed": "■", "total": "·" }
+    },
+    "percent": {
+      "type": 3,
+      "color": {
+        "green":  "#00FF66", // OK
+        "yellow": "#5A6A7A", // Neutral (usamos acero glacial)
+        "red":    "#D92626"  // Alerta
+      }
+    }
+  },
+
+
+  // ---- MÓDULOS ----
+  "modules": [
+    // Título (host@user)
+    { "type": "title", "key": "{#title}⚝ / {#}"},
+    "separator",
+
+    // Sistema
+    { "type": "os",       "key": "OS" },
+    { "type": "host",     "key": "Host" },
+    { "type": "kernel",   "key": "Kernel" },
+    { "type": "uptime",   "key": "Uptime" },
+
+    // Paquetes (pacman + paru + flatpak si usas)
+    { "type": "packages", "key": "Packages", "managers": ["pacman","paru","flatpak"] },
+
+    // Entorno
+    { "type": "shell",    "key": "Shell" },
+    { "type": "terminal", "key": "Terminal" },
+    { "type": "de",       "key": "DE" },
+    { "type": "wm",       "key": "WM" },
+    { "type": "wmtheme",  "key": "WM Theme" },
+    { "type": "theme",    "key": "GTK/Qt Theme" },
+    { "type": "icons",    "key": "Icons" },
+    { "type": "cursor",   "key": "Cursor" },
+    { "type": "font",     "key": "Font" },
+
+    // Hardware
+    { "type": "cpu",      "key": "CPU", "format": "{name} ({cores-physical}C/{cores-logical}T) @ {freq-max}" },
+    { "type": "gpu",      "key": "GPU" },
+    { "type": "memory",   "key": "Memory" },
+
+    // Pantallas (útil en multi-monitor)
+    { "type": "display",  "key": "Monitors" },
+
+    // Red
+    { "type": "localip",  "key": "LAN IP" },
+    { "type": "publicip", "key": "WAN IP" },
+
+    // Extras
+    { "type": "processes","key": "Processes" },
+    { "type": "locale",   "key": "Locale" }
+  ]
+}

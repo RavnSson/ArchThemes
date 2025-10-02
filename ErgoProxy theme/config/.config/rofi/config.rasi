@@ -1,0 +1,175 @@
+/**
+ * ROFI Color theme — Ergo Proxy (Beige visible + contrast)
+ * Paleta: celeste frío, gris azulado, beige, café terroso, gris oscuro, rojo apagado
+ */
+
+* {
+   /* acentos */
+   maincolor:        #6C8FA3;    /* celeste frío */
+   highlight:        bold #6C8FA3;
+   urgentcolor:      #8A2E32;    /* rojo apagado */
+
+   /* neutrales y fondos */
+   fgwhite:          #E8E8E8;    /* texto claro */
+   blackdarkest:     #1F1F1F;    /* fondo base oscuro */
+   blackwidget:      #BFAE98;    /* paneles beige visibles */
+   blackentry:       #1F1F1F;    /* ítems normales oscuros */
+   blackselect:      #3C4A57;    /* selección gris azulado */
+   darkgray:         #3A3A3A;    /* texto oscuro sobre beige */
+   scrollbarcolor:   #8B6E4E;    /* detalle café terroso */
+
+   font: "Iosevka Nerd Font 13";
+   background-color: @blackdarkest;
+}
+
+window {
+   location: center;
+   anchor: center;
+   width: 50ch;
+   border: 2px;
+   border-radius: 14px;
+   border-color: @maincolor;
+   background-color: rgba(31,31,31,0.92);
+}
+
+mainbox {
+   background-color: transparent;
+   spacing: 6px;
+   children: [inputbar, message, listview];
+}
+
+message, mode-switcher {
+   background-color: @blackwidget;
+   text-color: rgba(60,74,87,0.25);
+   padding: 6px 10px;
+   border: 0 0 1px 0;
+   border-color: rgba(60,74,87,0.25);
+}
+
+textbox {
+   text-color: #1F1F1F;
+   background-color: @blackwidget;
+}
+
+listview {
+   fixed-height: true;
+   lines: 10;                             /* controla cuantos items caben */
+   dynamic: true;
+   scrollbar: true;
+   spacing: 3px;
+   padding: 4px 0;
+   background: @blackdarkest;
+}
+
+element { padding: 6px 12px; }
+
+element normal.normal {
+   background-color: @blackentry;
+   text-color: @fgwhite;
+}
+
+element normal.urgent {
+   background-color: @blackentry;
+   text-color: @urgentcolor;
+}
+
+element normal.active {
+   background-color: @blackentry;
+   text-color: @maincolor;
+}
+
+element selected.normal {
+    background-color: @blackselect;      /* gris azulado */
+    text-color:       #FFFFFF;
+    border: 0 0 0 3px;
+    border-color: @maincolor;
+}
+
+element selected.urgent {
+    background-color: @urgentcolor;
+    text-color:       #F1F1F1;
+}
+
+element selected.active {
+    background-color: @maincolor;        /* celeste */
+    text-color:       #121212;
+}
+
+element alternate.normal {
+   background-color: @blackentry;
+   text-color: @fgwhite;
+}
+
+element alternate.urgent {
+   background-color: @blackentry;
+   text-color: @urgentcolor;
+}
+
+element alternate.active {
+   background-color: @blackentry;
+   text-color: @maincolor;
+}
+
+scrollbar {
+   background-color: transparent;
+   handle-color: @maincolor;        /* café terroso */
+   handle-width: 6px;
+}
+
+button {
+   background-color: transparent;
+   text-color: #1F1F1F;
+   padding: 4px 10px;
+   border: 1px;
+   border-radius: 999px;
+   border-color: rgba(60,74,87,0.35);
+}
+
+button selected {
+   background-color: @maincolor;
+   text-color: #0b0f17;
+   border-color: @maincolor;
+}
+
+inputbar {
+   background-color: @blackwidget;
+   spacing: 0px;
+   padding: 6px;
+   border-radius: 10px;
+   children: [entry];
+}
+
+prompt {
+   padding: 6px 14px;
+   background-color: @maincolor;         /* celeste */
+   text-color: #0b0f17;
+   border: 1px;
+   border-radius: 999px;
+}
+
+entry {
+   padding: 6px 10px;
+   background-color: @blackwidget;
+   text-color: #1F1F1F;                /* texto oscuro sobre beige */
+   border: 1px;
+   border-radius: 8px;
+   border-color: rgba(60,74,87,0.25);
+}
+
+case-indicator {
+   enabled: false;
+   spacing: 0px;
+   border: 0px;
+   padding: 0px;
+   text-color: transparent;
+   background-color: transparent;
+}
+
+num-filtered {
+   expand: false;
+   width: 0px;
+   padding: 0px;
+   text-color: transparent;
+   background-color: transparent;
+   border: 0px;
+}

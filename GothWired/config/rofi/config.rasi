@@ -1,0 +1,192 @@
+/**
+ * ROFI Color theme — CodexSyn (Obsidian UI, Wired-Gothic)
+ * Paleta CodexSyn:
+ * - Obsidiana        #0A0B0C  (fondo profundo)
+ * - Grafito digital  #1C1E22  (fondo secundario)
+ * - Ceniza espectral #C5C8C6  (texto base)
+ * - Hierro viejo     #3A3D42  (borde/neutral oscuro)
+ * - Verde fósforo    #00FF22  (acento principal)
+ * - Rojo sangreal    #D92626  (alertas/urgent)
+ * - Acero glacial    #5A6A7A  (selección fría)
+ * - Violeta abismal  #5E2B97  (acento alterno)
+ */
+
+* {
+   /* acentos */
+   maincolor:        #00FF22;              /* Verde fósforo (accent) */
+   highlight:        bold #00FF22;
+   urgentcolor:      #D92626;              /* Rojo sangreal */
+
+   /* neutrales y fondos */
+   fgwhite:          #C5C8C6;              /* Ceniza espectral (texto) */
+   blackdarkest:     #1C1E22;              /* Grafito digital (base oscura) */
+   blackwidget:      #0A0B0C;              /* Obsidiana (panel/chips oscuros) */
+   blackentry:       #1C1E22;              /* Ítems normales */
+   blackselect:      #5A6A7A;              /* Acero glacial (selección) */
+   darkgray:         #C5C8C6;              /* Texto sobre panel oscuro */
+   scrollbarcolor:   #3A3D42;              /* Hierro viejo (detalles/bordes) */
+
+   font: "Iosevka Nerd Font 13";
+   background-color: @blackdarkest;
+}
+
+window {
+   location: center;
+   anchor:   center;
+   width:    50ch;
+   border:   2px;
+   border-radius: 14px;
+   border-color: #3A3D42;                  /* Hierro viejo */
+   background-color: rgba(28,30,34,0.94);  /* Grafito digital con alpha */
+}
+
+mainbox {
+   background-color: transparent;
+   spacing: 6px;
+   children: [inputbar, message, listview];
+}
+
+/* barra de mensaje (línea fina, tono industrial) */
+message {
+   background-color: @blackwidget;         /* Obsidiana */
+   text-color: @darkgray;
+   padding: 6px 10px;
+   border: 0 0 1px 0;
+   border-color: rgba(58,61,66,0.35);      /* Hierro viejo 35% */
+}
+
+/* textos sueltos */
+textbox {
+   text-color: @darkgray;
+   background-color: @blackwidget;
+}
+
+/* listado */
+listview {
+   fixed-height: true;
+   lines: 10;                               /* cuántos ítems caben */
+   dynamic: true;
+   scrollbar: true;
+   spacing: 3px;
+   padding: 4px 0;
+   background: @blackdarkest;
+}
+
+element { padding: 6px 12px; }
+
+element normal.normal {
+   background-color: @blackentry;
+   text-color: @fgwhite;
+}
+
+element normal.urgent {
+   background-color: @blackentry;
+   text-color: @urgentcolor;
+}
+
+element normal.active {
+   background-color: @blackentry;
+   text-color: @maincolor;
+}
+
+element selected.normal {
+   background-color: @blackselect;         /* Acero glacial */
+   text-color: #FFFFFF;
+   border: 0 0 0 3px;
+   border-color: @maincolor;               /* stripe verde fósforo */
+}
+
+element selected.urgent {
+   background-color: @urgentcolor;
+   text-color: #0A0B0C;
+}
+
+element selected.active {
+   background-color: @maincolor;           /* Verde fósforo */
+   text-color: #0A0B0C;
+}
+
+element alternate.normal {
+   background-color: @blackentry;
+   text-color: @fgwhite;
+}
+
+element alternate.urgent {
+   background-color: @blackentry;
+   text-color: @urgentcolor;
+}
+
+element alternate.active {
+   background-color: @blackentry;
+   text-color: @maincolor;
+}
+
+/* scrollbar fino */
+scrollbar {
+   background-color: transparent;
+   handle-color: @maincolor;               /* verde fósforo */
+   handle-width: 6px;
+}
+
+/* chips/botones (si usas mode-switcher en otro tema, hereda estilos) */
+button {
+   background-color: transparent;
+   text-color: @fgwhite;
+   padding: 4px 10px;
+   border: 1px;
+   border-radius: 999px;
+   border-color: rgba(58,61,66,0.45);      /* Hierro viejo 45% */
+}
+button selected {
+   background-color: @maincolor;
+   text-color: #0A0B0C;
+   border-color: @maincolor;
+}
+
+/* input bar minimalista (solo entry; si quieres prompt, añade a children) */
+inputbar {
+   background-color: @blackwidget;         /* Obsidiana */
+   spacing: 0px;
+   padding: 6px;
+   border-radius: 10px;
+   children: [entry];
+}
+
+/* si prefieres prompt en píldora, descomenta y agrega 'prompt' en children
+prompt {
+   padding: 6px 14px;
+   background-color: @maincolor;
+   text-color: #0A0B0C;
+   border: 1px;
+   border-radius: 999px;
+   border-color: #3A3D42;
+}
+*/
+
+entry {
+   padding: 6px 10px;
+   background-color: @blackwidget;         /* Obsidiana */
+   text-color: @maincolor;                   /* Ceniza espectral */
+   border: 1px;
+   border-radius: 8px;
+   border-color: rgba(58,61,66,0.35);      /* Hierro viejo */
+}
+
+/* oculta contadores */
+case-indicator {
+   enabled: false;
+   spacing: 0px;
+   border: 0px;
+   padding: 0px;
+   text-color: transparent;
+   background-color: transparent;
+}
+
+num-filtered {
+   expand: false;
+   width: 0px;
+   padding: 0px;
+   text-color: transparent;
+   background-color: transparent;
+   border: 0px;
+}
